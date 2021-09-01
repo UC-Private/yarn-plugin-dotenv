@@ -1,6 +1,7 @@
 {
-  "name": "yarn-plugin-dotenv",
-  "version": "1.0.1",
+  "name": "@uc/yarn-plugin-dotenv-expanded",
+  "private": true,
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,18 +13,20 @@
     "bundles"
   ],
   "scripts": {
-    "build": "builder build plugin && yarn plugin import ./bundles/@yarnpkg/plugin-dotenv.js",
+    "build": "builder build plugin && yarn plugin import ./bundles/@yarnpkg/plugin-dotenv-expanded.js",
     "test": "echo run ./test.bash instead && false"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "find-config": "^1.0.0"
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
-    "@types/find-config": "^1.0.0",
     "@types/node": "^14.0.0",
     "@yarnpkg/builder": "^2.1.1",
     "@yarnpkg/core": "^2.1.1",
     "typescript": "^3.9.5"
-  }
+  },
+  "workspaces": [
+    "test1",
+    "test2"
+  ]
 }

@@ -359,13 +359,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/find-config@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@types/find-config@npm:1.0.0"
-  checksum: d66c78e3ddbf6ce935a94a36277bdddea15c3f747fa277faf59b0ee5c0bcc72c49ff6ad488ada0f0b9a2b73e232dcb81f50785bd62a12fbb0eb8227569268ab6
-  languageName: node
-  linkType: hard
-
 "@types/http-cache-semantics@npm:*":
   version: 4.0.0
   resolution: "@types/http-cache-semantics@npm:4.0.0"
@@ -425,6 +418,18 @@ __metadata:
   checksum: 7e8588aa55ecb344eda6954674b83a3c568d97d478e70e4617bd3ab22902590ac416ccf2cea48b58fb2f0fbd80f9ad1896332c9b3c3189ffd24e4350ff22094a
   languageName: node
   linkType: hard
+
+"@uc/yarn-plugin-dotenv-expanded@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@uc/yarn-plugin-dotenv-expanded@workspace:."
+  dependencies:
+    "@types/node": ^14.0.0
+    "@yarnpkg/builder": ^2.1.1
+    "@yarnpkg/core": ^2.1.1
+    dotenv: ^8.2.0
+    typescript: ^3.9.5
+  languageName: unknown
+  linkType: soft
 
 "@webassemblyjs/ast@npm:1.9.0":
   version: 1.9.0
@@ -1834,15 +1839,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-config@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "find-config@npm:1.0.0"
-  dependencies:
-    user-home: ^2.0.0
-  checksum: 69b36bbc8b83149942857bf9171cfc0ee012983634c6d55ee7ac0b70e2ef4c5e27d681f2b146a0b2552e88ee0fd0128c3a7de7a81bc5f9c0bca081d5503d35e1
-  languageName: node
-  linkType: hard
-
 "find-up@npm:^3.0.0":
   version: 3.0.0
   resolution: "find-up@npm:3.0.0"
@@ -2752,13 +2748,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"os-homedir@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "os-homedir@npm:1.0.2"
-  checksum: 725256246b2cec353250ec46442e3cfa7bc96ef92285d448a90f12f4bbd78c1bf087051b2cef0382da572e1a9ebc8aa24bd0940a3bdc633c3e3012eef1dc6848
-  languageName: node
-  linkType: hard
-
 "p-cancelable@npm:^2.0.0":
   version: 2.0.0
   resolution: "p-cancelable@npm:2.0.0"
@@ -3513,6 +3502,18 @@ resolve@^1.3.2:
   languageName: node
   linkType: hard
 
+"test1@workspace:test1":
+  version: 0.0.0-use.local
+  resolution: "test1@workspace:test1"
+  languageName: unknown
+  linkType: soft
+
+"test2@workspace:test2":
+  version: 0.0.0-use.local
+  resolution: "test2@workspace:test2"
+  languageName: unknown
+  linkType: soft
+
 "to-fast-properties@npm:^2.0.0":
   version: 2.0.0
   resolution: "to-fast-properties@npm:2.0.0"
@@ -3630,15 +3631,6 @@ typescript@^3.9.5:
   dependencies:
     punycode: ^2.1.0
   checksum: 970577344101f43aa64d1e6ab7f78ff0371df0ff7731de66da268125c2703e7bf70693afd0b76c96325e247466b49b4b081d9f54339e9520b2b9c02b598542a6
-  languageName: node
-  linkType: hard
-
-"user-home@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "user-home@npm:2.0.0"
-  dependencies:
-    os-homedir: ^1.0.0
-  checksum: ba2791a65d3b4b506d0494fc08188be8cf66e29a43e80820845f531607d14638168828eda650a2e8edbf8327476cb8802091a8ac389567d9e88e9d1406b623fe
   languageName: node
   linkType: hard
 
@@ -3767,20 +3759,6 @@ typescript@^3.9.5:
   checksum: d4cc9f9724f8d0aebc2cf52e4e6aa7059f12d50deb54b5225d103462fb2af36e5c0bb419101ca4b1f0cd3b4db9e4139cf2c690e863ac6227648d39d6f4e2522c
   languageName: node
   linkType: hard
-
-"yarn-plugin-dotenv@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "yarn-plugin-dotenv@workspace:."
-  dependencies:
-    "@types/find-config": ^1.0.0
-    "@types/node": ^14.0.0
-    "@yarnpkg/builder": ^2.1.1
-    "@yarnpkg/core": ^2.1.1
-    dotenv: ^8.2.0
-    find-config: ^1.0.0
-    typescript: ^3.9.5
-  languageName: unknown
-  linkType: soft
 
 "yup@npm:^0.27.0":
   version: 0.27.0
