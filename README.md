@@ -1,11 +1,11 @@
-# yarn-plugin-dotenv
+# @uc/yarn-plugin-dotenv-expanded
 
 > A [Yarn 2 plugin](https://yarnpkg.com/features/plugins) to initialize all your scripts with [`dotenv`](https://github.com/motdotla/dotenv)
 
 ## Installation
 
 ```sh
-yarn plugin import https://unpkg.com/yarn-plugin-dotenv/bundles/@yarnpkg/plugin-dotenv.js
+yarn plugin import https://raw.githubusercontent.com/UC-Private/yarn-plugin-dotenv-expanded/master/bundles/%40yarnpkg/plugin-dotenv-expanded.js
 ```
 
 ## Usage
