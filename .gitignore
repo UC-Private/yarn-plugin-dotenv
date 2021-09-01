@@ -3,7 +3,5 @@
 !.yarn/plugins
 !.yarn/releases
 
-/bundles/
-
 .vim/
 .vscode/
