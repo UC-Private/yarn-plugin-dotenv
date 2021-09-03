@@ -4,13 +4,13 @@ import { existsSync } from "fs";
 import { dirname, join, resolve, parse } from "path";
 
 var interpolateValue = function (doteEnvConfig, envValue, environment) {
-  var matches = envValue.match(/(.?\${?(?:[a-zA-Z0-9_]+)?}?)/g) || [];
+  const matches = envValue.match(/(.?\${?(?:[a-zA-Z0-9_]+)?}?)/g) || [];
 
   return matches.reduce(function (newEnv, match) {
-    var parts = /(.?)\${?([a-zA-Z0-9_]+)?}?/g.exec(match)!;
-    var prefix = parts[1];
+    const parts = /(.?)\${?([a-zA-Z0-9_]+)?}?/g.exec(match)!;
+    const prefix = parts[1];
 
-    var value, replacePart;
+    let value, replacePart;
 
     if (prefix === "\\") {
       replacePart = parts[0];
@@ -33,8 +33,8 @@ var interpolateValue = function (doteEnvConfig, envValue, environment) {
 
 const interpolateConfig = (doteEnvConfig: any, environment: any) => {
   const newConfig = { ...doteEnvConfig.parsed };
-  for (var configKey in doteEnvConfig.parsed) {
-    var value = environment.hasOwnProperty(configKey)
+  for (const configKey in doteEnvConfig.parsed) {
+    const value = environment.hasOwnProperty(configKey)
       ? environment[configKey]
       : doteEnvConfig.parsed[configKey];
 
