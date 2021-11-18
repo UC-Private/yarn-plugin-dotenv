@@ -1,4 +1,4 @@
-import { Hooks } from "@yarnpkg/core";
+import { Plugin } from "@yarnpkg/core";
 import { config } from "dotenv";
 import { existsSync } from "fs";
 import { dirname, join, resolve, parse } from "path";
@@ -44,27 +44,31 @@ const interpolateConfig = (doteEnvConfig: any, environment: any) => {
   return newConfig;
 };
 
-export const hooks: Hooks = {
-  async setupScriptEnvironment(project, scriptEnv) {
-    const nodeEnv = process.env.NODE_ENV || "development";
+export const plugin: Plugin = {
+  hooks: {
+    async setupScriptEnvironment(project, scriptEnv) {
+      const nodeEnv = scriptEnv.NODE_ENV || "development";
 
-    const envFiles = [];
-    const projectRoot = resolve(project.cwd);
-    let cwd = resolve(scriptEnv.INIT_CWD) ?? process.cwd();
-    const { root } = parse(cwd);
+      const envFiles = [];
+      const projectRoot = resolve(project.cwd);
+      let cwd = resolve(scriptEnv.INIT_CWD) ?? process.cwd();
+      const { root } = parse(cwd);
 
-    do {
-      for (const ext of [".local", `.${nodeEnv}`, ""]) {
-        const envFile = join(cwd, `.env${ext}`);
-        if (existsSync(envFile)) envFiles.push(envFile);
+      do {
+        for (const ext of ["", `.${nodeEnv}`, ".local"]) {
+          const envFile = join(cwd, `.env${ext}`);
+          if (existsSync(envFile)) envFiles.push(envFile);
+        }
+
+        cwd = dirname(cwd);
+      } while (cwd !== dirname(projectRoot) && cwd !== root);
+
+      for (const envFile of envFiles.reverse()) {
+        const newEnv = interpolateConfig(config({ path: envFile }), scriptEnv);
+        Object.assign(scriptEnv, newEnv);
       }
-
-      cwd = dirname(cwd);
-    } while (cwd !== dirname(projectRoot) && cwd !== root);
-
-    for (const envFile of envFiles.reverse()) {
-      const newEnv = interpolateConfig(config({ path: envFile }), scriptEnv);
-      Object.assign(scriptEnv, newEnv);
-    }
+    },
   },
 };
+
+export default plugin;
